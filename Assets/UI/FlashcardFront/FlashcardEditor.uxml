@@ -1,0 +1,18 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/General.uss?fileID=7433441132597879392&amp;guid=378ae38e8aa6cf44c9c0bd0eb8f51bdd&amp;type=3#General" />
+    <ui:GroupBox style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; background-color: rgb(99, 96, 255); width: 100%; height: 100%;">
+        <ui:GroupBox name="MainHeader" style="flex-direction: row; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; width: 100%;">
+            <ui:GroupBox style="margin-left: 8%; margin-right: 0; margin-top: 13%; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; flex-direction: row;">
+                <ui:Button display-tooltip-when-elided="true" name="BackButton" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; width: 50px; height: 50px; -unity-background-scale-mode: stretch-to-fill;" />
+            </ui:GroupBox>
+            <ui:Label text="Flashcard" display-tooltip-when-elided="true" name="Header" />
+        </ui:GroupBox>
+        <ui:GroupBox style="margin-left: 10%; margin-right: 0; margin-top: 60%; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; height: 30%; width: 80%;">
+            <ui:Button text="Term" display-tooltip-when-elided="true" name="WordButton" style="height: 80%; width: 100%; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-top-left-radius: 50px; border-bottom-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; background-color: rgb(252, 252, 255); font-size: 128px; color: rgb(0, 0, 0); flex-wrap: wrap; white-space: normal;" />
+        </ui:GroupBox>
+        <ui:GroupBox style="margin-left: 10%; margin-right: 0; margin-top: 5%; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; width: 80%; height: 10%; flex-direction: row; background-color: rgba(0, 0, 0, 0);">
+            <ui:Button text="←" display-tooltip-when-elided="true" name="LeftButton" style="margin-left: 0; margin-right: 30%; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; background-color: rgba(252, 252, 255, 0); color: rgb(252, 252, 255); -unity-font-style: bold; font-size: 196px; width: auto; -unity-text-align: middle-left; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
+            <ui:Button text="→" display-tooltip-when-elided="true" name="RightButton" style="margin-left: 30%; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; background-color: rgba(252, 252, 255, 0); font-size: 196px; color: rgb(252, 252, 255); -unity-font-style: bold; width: auto; -unity-text-align: middle-right; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
+        </ui:GroupBox>
+    </ui:GroupBox>
+</ui:UXML>

@@ -1,0 +1,18 @@
+#BackButton {
+    color: rgb(252, 252, 255);
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url('project://database/Assets/Textures/back-arrow.png?fileID=2800000&guid=3f47b363b7f470f49b5927f1f9dfdb4a&type=3#back-arrow');
+    width: auto;
+    height: auto;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+}
+
+#Header {
+    margin-left: 7%;
+    margin-top: 13.3%;
+    font-size: 36px;
+    color: rgba(252, 252, 255, 255);
+}
