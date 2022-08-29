@@ -5,7 +5,7 @@ class UnitButton extends React.Component {
     render() {
         return (
             <div className="unit-button" >
-                <Link to={'/unit'}>
+                <Link to={'/study-options-page'}>
                     <button className="btn btn-primary">
                         {this.props.text}
                     </button>
