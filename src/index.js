@@ -1,15 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
+import './index.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Units from './components/Units';
+import UnitPage from './components/UnitPage';
 
-class App extends React.Component {
-    render() {
-        return (
-            <div>
-                <h1>Hello World</h1>
-            </div>
-        );
-    }
-}
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+ReactDOM.render(
+    <Router>
+        <Routes>
+            <Route path='/' element={<Units />} />
+            <Route path='/unit' element={<UnitPage />} />
+        </Routes>
+    </Router>,
+    document.getElementById('root')
+);
