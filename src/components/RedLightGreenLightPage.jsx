@@ -19,7 +19,6 @@ function RedLightGreenLightPage(props) {
             </div>
             <button id="light" onClick={flipLight}></button>
         </div>
-
     );
 }
 
