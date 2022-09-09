@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './components/HomePage/Home';
+import HomePage from './components/HomePage/Home';
 import Navbar from './components/Navbar/Navbar';
 import RedLightGreenLightPage from './components/RedLightGreenLightPage';
 import StudyOptionsPage from './components/StudyOptionsPage/StudyOptionsPage';
@@ -15,7 +15,7 @@ ReactDOM.render(
     <Router>
         <Navbar></Navbar>
         <Routes>
-            <Route path={HOME_PATH} element={<Home />} />
+            <Route path={HOME_PATH} element={<HomePage />} />
             <Route path={UNITS_LIST_PATH} element={<UnitsListPage />} />
             <Route path={STUDY_OPTIONS_PATH} element={<StudyOptionsPage />} />
             <Route path={VOCAB_PATH} element={<VocabPage />} />

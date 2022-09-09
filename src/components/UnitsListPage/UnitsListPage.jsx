@@ -1,38 +1,40 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { STUDY_OPTIONS_PATH } from '../../constants';
-import '../../index.css';
+import { getUnit } from '../../unitData';
 import './UnitsListPage.css';
 
-class UnitButton extends React.Component {
-    render() {
-        return (
-            <div>
-                <Link to={STUDY_OPTIONS_PATH}>
-                    <button className="unit-button">
-                        {this.props.text}
-                    </button>
-                </Link>
-            </div>
-        );
-    }
+function UnitButton(props) {
+    const unitData = {
+        unit: props.unit,
+    };
+
+    return (
+        <div>
+            <Link to={STUDY_OPTIONS_PATH} state={unitData}>
+                <button className="unit-button">
+                    {props.unit.name}
+                </button>
+            </Link>
+        </div>
+    );
 }
 
-function UnitsListPage(props) {
+function UnitsListPage() {
     return (
         <>
-            <div className="PageHeader">
-                <h3 className="PageHeaderText">
+            <div className="header">
+                <h3 className="header-text">
                     Units
                 </h3>
             </div>
             <div className="units">
-                <UnitButton text={"Unit 1 이름이 참 예뻐요."} />
-                <UnitButton text={"Unit 2 남자친구가 있어요?"} />
-                <UnitButton text={"Unit 3 같이 저녁을 먹을까요?"} />
-                <UnitButton text={"Unit 4 마트에 가요."} />
-                <UnitButton text={"Unit 5 눈꽃빙수를 먹어 볼게요."} />
-                <UnitButton text={"Unit 6 주말에 같이 놀러 갈래요?"} />
+                <UnitButton unit={getUnit(1)} />
+                <UnitButton unit={getUnit(2)} />
+                <UnitButton unit={getUnit(3)} />
+                <UnitButton unit={getUnit(4)} />
+                <UnitButton unit={getUnit(5)} />
+                <UnitButton unit={getUnit(6)} />
             </div>
         </>
     );

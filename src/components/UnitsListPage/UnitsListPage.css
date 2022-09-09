@@ -14,3 +14,12 @@
     padding: 40px 40px;
     width: 30rem;
 }
+
+.header {
+    background-color: black;
+}
+
+.header-text {
+    padding: 1rem;
+    color: white;
+}
