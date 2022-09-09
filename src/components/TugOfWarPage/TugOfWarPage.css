@@ -1,0 +1,22 @@
+.background {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('./TugOfWar.png');
+    background-size: contain;
+}
+
+#pregame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#game {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
