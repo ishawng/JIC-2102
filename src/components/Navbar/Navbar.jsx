@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { HOME_PATH, UNITS_LIST_PATH } from '../../constants';
 import './Navbar.css';
 
 function Navbar() {
@@ -10,7 +11,7 @@ function Navbar() {
         <>
             <nav className="navbar">
                 <div className="navbar-container">
-                    <Link to="/" className="navbar-logo">
+                    <Link to={HOME_PATH} className="navbar-logo">
                         KLG {/* Add icon later 13:15 in tutorial */}
                     </Link>
                     {/* <div className="menu-icon">
@@ -19,7 +20,7 @@ function Navbar() {
                 </div>
                 <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                     <li className="nav-item">
-                        <Link to='/units' className="nav-links">
+                        <Link to={UNITS_LIST_PATH} className="nav-links">
                             Units
                         </Link>
                     </li>

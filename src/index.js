@@ -5,7 +5,7 @@ import Home from './components/HomePage/Home';
 import Navbar from './components/Navbar/Navbar';
 import RedLightGreenLightPage from './components/RedLightGreenLightPage';
 import StudyOptionsPage from './components/StudyOptionsPage/StudyOptionsPage';
-import TugOfWarPage from './components/TugOfWarPage';
+import TugOfWarPage from './components/TugOfWarPage/TugOfWarPage';
 import UnitsListPage from './components/UnitsListPage/UnitsListPage';
 import VocabPage from './components/VocabPage';
 import { HOME_PATH, RED_LIGHT_GREEN_LIGHT_PATH, STUDY_OPTIONS_PATH, TUG_OF_WAR_PATH, UNITS_LIST_PATH, VOCAB_PATH } from './constants';
