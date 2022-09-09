@@ -1,12 +1,12 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 function Navbar() {
-    const [click, setClick] = useState(false);
-    const handleClick = () => setClick(!click);
+    const click = useState(false);
+    // const [click, setClick] = useState(false);
+    // const handleClick = () => setClick(!click);
     return (
-        
         <>
             <nav className="navbar">
                 <div className="navbar-container">
@@ -29,7 +29,6 @@ function Navbar() {
                         </Link>
                     </li>
                 </ul>
-                
             </nav>
         </>
     )
