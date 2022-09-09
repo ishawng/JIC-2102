@@ -1,0 +1,16 @@
+.units {
+    display: block;
+    text-align: center;
+    margin: 1rem;
+}
+
+.unit-button {
+    background-color: #de8c93;
+    border: 1px solid black;
+    border-radius: 1rem;
+    color: white;
+    font-size: larger;
+    margin: 10px;
+    padding: 40px 40px;
+    width: 30rem;
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import UnitsListPage from './components/UnitsListPage';
+import UnitsListPage from './components/UnitsListPage/UnitsListPage';
 import StudyOptionsPage from './components/StudyOptionsPage';
 import VocabPage from './components/VocabPage';
 import RedLightGreenLightPage from './components/RedLightGreenLightPage';
