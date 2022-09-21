@@ -1,7 +1,8 @@
-.RedLightGreenLightPage {
-    background-color: #04797c;
+.Background {
+    /* background-color: #04797c; */
     min-height: 100vh;
     text-align: center;
+    background-image: url('./RedLightGreenLight.png');
 }
 
 .PageHeader {
@@ -10,6 +11,17 @@
 
 .PageHeaderText {
     padding: 1rem;
+}
+
+#question-div {
+    visibility: hidden;
+    position: fixed;
+    left: 50%;
+    top: 60%;
+}
+
+#start-game-button {
+    visibility: visible;
 }
 
 #light {
