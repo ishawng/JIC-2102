@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './components/HomePage/Home';
 import Navbar from './components/Navbar/Navbar';
-import RedLightGreenLightPage from './components/RedLightGreenLightPage';
+import RedLightGreenLightPage from './components/RedLightGreenLightPage/RedLightGreenLightPage';
 import StudyOptionsPage from './components/StudyOptionsPage/StudyOptionsPage';
 import TugOfWarPage from './components/TugOfWarPage/TugOfWarPage';
 import UnitsListPage from './components/UnitsListPage/UnitsListPage';
