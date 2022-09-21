@@ -1,8 +1,8 @@
 .Background {
-    /* background-color: #04797c; */
     min-height: 100vh;
     text-align: center;
     background-image: url('./RedLightGreenLight.png');
+    /* background-size: contain; */
 }
 
 .PageHeader {

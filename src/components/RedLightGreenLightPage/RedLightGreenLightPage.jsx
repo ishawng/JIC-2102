@@ -32,15 +32,15 @@ class RedLightGreenLightPage extends React.Component {
             credit to https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
             for shuffleArray function
         */
-        // function shuffleArray(array) {
-        //     for (let i = array.length - 1; i > 0; i--) {
-        //         const j = Math.floor(Math.random() * (i + 1));
-        //         [array[i], array[j]] = [array[j], array[i]];
-        //     }
-        // }
-        // shuffleArray(this.state.questionsList);
-        // console.log("startGame called")
-        // console.log(this.state.questionsList);
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+        shuffleArray(this.state.questionsList);
+        console.log("startGame called")
+        console.log(this.state.questionsList);
 
         ReactDOM.findDOMNode(document.getElementById("question-div")).style.visibility = "visible";
         ReactDOM.findDOMNode(document.getElementById("start-game-button")).style.visibility = "hidden";
