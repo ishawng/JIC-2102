@@ -5,7 +5,8 @@ import './StudyOptionsPage.css';
 
 function StudyOptionsPage(props) {
     const location = useLocation();
-    const unit = location.state.unit;
+    const unit = location.state;
+
     return (
         <>
             <h3>{unit.name}</h3>
@@ -15,18 +16,18 @@ function StudyOptionsPage(props) {
                         {'Return to Units List Page'}
                     </button>
                 </Link>
-                <Link to={VOCAB_PATH}>
+                <Link to={VOCAB_PATH} state={unit}>
                     <button color="#fcb0b6" className="btn btn-primary">
                         {'Vocab'}
                     </button>
                 </Link>
 
-                <Link to={RED_LIGHT_GREEN_LIGHT_PATH}>
+                <Link to={RED_LIGHT_GREEN_LIGHT_PATH} state={unit}>
                     <button className="btn btn-primary">
                         {'Red Light Green Light Minigame'}
                     </button>
                 </Link>
-                <Link to={TUG_OF_WAR_PATH}>
+                <Link to={TUG_OF_WAR_PATH} state={unit}>
                     <button className="btn btn-primary">
                         {'Tug of War Minigame'}
                     </button>

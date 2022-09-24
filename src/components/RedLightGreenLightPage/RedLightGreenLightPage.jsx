@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { shuffleArray } from '../../utils';
 import './RedLightGreenLightPage.css';
 
 class RedLightGreenLightPage extends React.Component {
@@ -24,20 +25,10 @@ class RedLightGreenLightPage extends React.Component {
     flipLight() {
         ReactDOM.findDOMNode(document.getElementById("light")).style.backgroundColor = this.state.nextColor;
         const nextColorUpdate = this.state.nextColor === "#008450" ? "#B81D13" : "#008450";
-        this.setState({nextColor: nextColorUpdate});
+        this.setState({ nextColor: nextColorUpdate });
     }
 
     startGame() {
-        /*
-            credit to https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-            for shuffleArray function
-        */
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-        }
         shuffleArray(this.state.questionsList);
         console.log("startGame called")
         console.log(this.state.questionsList);
@@ -47,7 +38,7 @@ class RedLightGreenLightPage extends React.Component {
     }
 
     handleChange(event) {
-        this.setState({answerInput: event.target.value});
+        this.setState({ answerInput: event.target.value });
         console.log(this.state.answerInput);
     }
 
@@ -55,7 +46,7 @@ class RedLightGreenLightPage extends React.Component {
         const submission = this.state.answerInput;
         if (submission === this.state.questionsList[this.state.currQuestionIndex][1]) {
             this.flipLight();
-            this.setState({currQuestionIndex: this.state.currQuestionIndex + 1})
+            this.setState({ currQuestionIndex: this.state.currQuestionIndex + 1 })
         } else {
             alert("Incorrect, try again")
         }
