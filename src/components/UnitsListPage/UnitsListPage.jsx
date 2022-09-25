@@ -5,15 +5,13 @@ import { getUnit } from '../../unitData';
 import './UnitsListPage.css';
 
 function UnitButton(props) {
-    const unitData = {
-        unit: props.unit,
-    };
+    const unit = props.unit;
 
     return (
         <div>
-            <Link to={STUDY_OPTIONS_PATH} state={unitData}>
+            <Link to={STUDY_OPTIONS_PATH} state={unit}>
                 <button className="unit-button">
-                    {props.unit.name}
+                    {unit.name}
                 </button>
             </Link>
         </div>

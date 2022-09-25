@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './components/HomePage/Home';
 import Navbar from './components/Navbar/Navbar';
@@ -11,7 +11,8 @@ import VocabPage from './components/VocabPage';
 import { HOME_PATH, RED_LIGHT_GREEN_LIGHT_PATH, STUDY_OPTIONS_PATH, TUG_OF_WAR_PATH, UNITS_LIST_PATH, VOCAB_PATH } from './constants';
 import './index.css';
 
-ReactDOM.render(
+const root = createRoot(document.getElementById('root'));
+root.render(
     <Router>
         <Navbar></Navbar>
         <Routes>
@@ -22,6 +23,5 @@ ReactDOM.render(
             <Route path={RED_LIGHT_GREEN_LIGHT_PATH} element={<RedLightGreenLightPage />} />
             <Route path={TUG_OF_WAR_PATH} element={<TugOfWarPage />} />
         </Routes>
-    </Router>,
-    document.getElementById('root')
+    </Router>
 );
