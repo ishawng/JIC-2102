@@ -3,9 +3,9 @@ import { useLocation } from 'react-router-dom';
 import { shuffleArray } from '../../utils';
 import { getVocab } from '../../vocabData';
 import TugOfWarImage from './TugOfWar.png';
-import { ReactComponent as CircleSvg } from './Circle.svg'
-import { ReactComponent as FlagSvg } from './Flag.svg'
-import { ReactComponent as SkullSvg } from './Skull.svg'
+import { ReactComponent as CircleSvg } from '../../SharedImages/Circle.svg'
+import { ReactComponent as FlagSvg } from '../../SharedImages/Flag.svg'
+import { ReactComponent as SkullSvg } from '../../SharedImages/Skull.svg'
 import './TugOfWarPage.css';
 
 function ScoreView() {
@@ -94,7 +94,7 @@ function TugOfWarPage() {
         }
     }
 
-    // console.log(state.questions[state.currQuestionIndex]);
+    console.log(state.questions[state.currQuestionIndex]);
 
     return (
         <div className='container'>

@@ -5,11 +5,43 @@
     /* background-size: contain; */
 }
 
+.red {
+    fill: red;
+}
+
+.green {
+    fill: green;
+}
+
 #question-div {
     visibility: hidden;
     position: fixed;
     left: 50%;
     top: 60%;
+}
+
+#postgame-div {
+    visibility: hidden;
+    position: fixed;
+    left: 50%;
+    top: 60%;
+}
+
+#question-text {
+    font-weight: bold;
+    color: #de8c93;
+}
+
+#win-text {
+    visibility: hidden;
+    font-weight: bold;
+    color: green;
+}
+
+#lose-text {
+    visibility: hidden;
+    font-weight: bold;
+    color: red;
 }
 
 #start-game-button {
