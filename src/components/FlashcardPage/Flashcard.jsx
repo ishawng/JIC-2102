@@ -7,7 +7,7 @@ const Flashcard = ({ flashcard }) => {
         <div className={`card ${flip ? 'flip' : ''}`} onClick={() => setFlip(!flip)}>
             <div className="front">
                 {flashcard.english}
-                
+
             </div>
             <div className="back">{flashcard.korean}</div>
         </div>

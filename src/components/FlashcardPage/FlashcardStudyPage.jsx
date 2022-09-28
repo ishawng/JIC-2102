@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { getVocab } from '../../vocabData';
 import FlashcardList from './FlashcardList';
-import './FlashcardStudyPage.css'
+import './FlashcardStudyPage.css';
 
 
 function FlashcardStudyPage() {

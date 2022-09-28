@@ -1,3 +1,17 @@
-.study-options-page {
-    background-color: #fcb0b6;
+#study-options-page-container {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#study-options-page-container button {
+    background-color: #de8c93;
+    border: 1px solid black;
+    border-radius: 1rem;
+    color: white;
+    font-size: larger;
+    margin: 10px;
+    padding: 20px 40px;
+    width: 20rem;
 }
