@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 import { getVocab } from '../../vocabData';
-import FlashcardList from './FlashcardList';
+import Flashcard from './Flashcard';
 import './FlashcardStudyPage.css';
 
-
 function FlashcardStudyPage() {
-  const [cards] = useState(SAMPLE_CARDS)
+    const location = useLocation();
+    const unit = location.state;
+    const cards = getVocab(unit.number);
 
-  return (
-    <FlashcardList flashcards={cards} />
-  );
+    return (
+        <div id='flashcard-container'>
+            {cards.map(flashcard => {
+                return <Flashcard flashcard={flashcard} />
+            })}
+        </div>
+    );
 }
-
-const SAMPLE_CARDS = getVocab(1)
 
 export default FlashcardStudyPage;
