@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { RED_LIGHT_GREEN_LIGHT_PATH, TUG_OF_WAR_PATH, UNITS_LIST_PATH, VOCAB_PATH } from '../../constants';
+import { FLASHCARD_STUDY_PATH, RED_LIGHT_GREEN_LIGHT_PATH, TUG_OF_WAR_PATH, UNITS_LIST_PATH } from '../../constants';
 import './StudyOptionsPage.css';
 
 function StudyOptionsPage(props) {
@@ -16,9 +16,9 @@ function StudyOptionsPage(props) {
                         {'Return to Units List Page'}
                     </button>
                 </Link>
-                <Link to={VOCAB_PATH} state={unit}>
+                <Link to={FLASHCARD_STUDY_PATH} state={unit}>
                     <button color="#fcb0b6" className="btn btn-primary">
-                        {'Vocab'}
+                        {'Flashcards'}
                     </button>
                 </Link>
 
