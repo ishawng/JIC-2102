@@ -55,6 +55,11 @@ function RedLightGreenLightPage() {
             // console.log("CORRECT");
 
             setCurrCorrectScore(currCorrectScore + 1);
+            if (currCorrectScore === 5) {
+                document.getElementById("game-div").style.display = "none";
+                document.getElementById("postgame-div").style.display = "flex";
+                document.getElementById("win-text").style.display = "flex";
+            }
         } else {
             // console.log("Question: " + questions[currQuestionIndex].english + "; Answer: " + questions[currQuestionIndex].korean)
             // console.log("your incorrect answer: " + submission);
