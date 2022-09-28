@@ -25,6 +25,8 @@ function RedLightGreenLightPage() {
     const [currQuestionIndex, setCurrQuestionIndex] = useState(0);
     const [currCorrectScore, setCurrCorrectScore] = useState(-1); // set as -1 so update to 0 in startGame() triggers rerender
     const [currIncorrectScore, setCurrIncorrectScore] = useState(-1);
+    const [startTime, setStartTime] = useState(0);
+    const [endTime, setEndTime] = useState(0);
     const questions = getVocab(1);
 
     function flipLight() {
@@ -34,6 +36,10 @@ function RedLightGreenLightPage() {
     }
 
     function startGame() {
+        setTimeout(() => {
+
+        }, 5000);
+
         shuffleArray(questions);
         setCurrCorrectScore(0);
         setCurrIncorrectScore(0);
@@ -45,9 +51,14 @@ function RedLightGreenLightPage() {
         document.getElementById("pregame-div").style.display = "none";
         document.getElementById("postgame-div").style.display = "none";
         document.getElementById("game-div").style.display = "flex";
+
+        setStartTime(Date.now()); // TODO: figure out this logic
+
     }
 
     function submitAnswer() {
+        console.log((Date.now() - startTime) / 1000);
+
         const submission = document.getElementById('answer-input').value;
         document.getElementById('answer-input').value = '';
 
