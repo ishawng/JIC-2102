@@ -261,8 +261,8 @@ const VOCAB = {
             korean: '다',
         },
         {
-            english: '만 (marker) only',
-            korean: 'N',
+            english: '(marker) only',
+            korean: 'N만',
         },
         {
             english: 'later (during the day)',
@@ -353,8 +353,8 @@ const VOCAB = {
             korean: '유명하다',
         },
         {
-            english: '아이스 shaved ice',
-            korean: '쉐이브',
+            english: 'shaved ice',
+            korean: '쉐이브 아이스',
         },
         {
             english: 'to be similar',
@@ -381,8 +381,12 @@ const VOCAB = {
             korean: '두',
         },
         {
-            english: 'cup, glass, counter for cupful 돈 money',
+            english: 'cup, glass, counter for cupful',
             korean: '잔',
+        },
+        {
+            english: 'money',
+            korean: '돈',
         },
         {
             english: 'to buy',
@@ -443,8 +447,12 @@ const VOCAB = {
             korean: '바이킹',
         },
         {
-            english: 'surely, undoubtedly, certainly 옆 beside, by the side',
+            english: 'surely, undoubtedly, certainly',
             korean: '꼭',
+        },
+        {
+            english: 'beside, by the side',
+            korean: '옆',
         },
         {
             english: 'Saturday',
