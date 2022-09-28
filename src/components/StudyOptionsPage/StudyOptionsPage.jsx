@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { FLASHCARD_STUDY_PATH, RED_LIGHT_GREEN_LIGHT_PATH, TUG_OF_WAR_PATH, UNITS_LIST_PATH } from '../../constants';
 import './StudyOptionsPage.css';
 
-function StudyOptionsPage(props) {
+function StudyOptionsPage() {
     const location = useLocation();
     const unit = location.state;
 
