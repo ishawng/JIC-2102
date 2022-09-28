@@ -1,10 +1,10 @@
-.container {
+.tug-of-war-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-img.background {
+.tug-of-war-container img.background {
     min-height: 100%;
     min-width: 1024px;
     width: 100%;
@@ -22,52 +22,48 @@ img.background {
     }
 }
 
-#score {
-    display: none;
-}
-
-#pregame {
+.tug-of-war-container #pregame {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#game {
+.tug-of-war-container #game {
     display: none;
     flex-direction: column;
     align-items: center;
 }
 
-#postgame {
+.tug-of-war-container #postgame {
     display: none;
     flex-direction: column;
     align-items: center;
 }
 
-#question-text {
+.tug-of-war-container #question-text {
     font-weight: bold;
     color: #de8c93;
 }
 
-.gray {
+.tug-of-war-container .gray {
     fill: gray;
 }
 
-.red {
+.tug-of-war-container .red {
     fill: red;
 }
 
-.green {
+.tug-of-war-container .green {
     fill: green;
 }
 
-#win-text {
+.tug-of-war-container #win-text {
     display: none;
     font-weight: bold;
     color: green;
 }
 
-#lose-text {
+.tug-of-war-container #lose-text {
     display: none;
     font-weight: bold;
     color: red;

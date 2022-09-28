@@ -6,7 +6,7 @@ import TugOfWarImage from './TugOfWar.png';
 import { ReactComponent as CircleSvg } from '../../SharedImages/Circle.svg'
 import { ReactComponent as FlagSvg } from '../../SharedImages/Flag.svg'
 import { ReactComponent as SkullSvg } from '../../SharedImages/Skull.svg'
-import './TugOfWarPage.css';
+import './TugOfWarPage.css'
 
 function ScoreView() {
     return (
@@ -100,7 +100,7 @@ function TugOfWarPage() {
     console.log(state.questions[state.currQuestionIndex]);
 
     return (
-        <div className='container'>
+        <div className='tug-of-war-container'>
             <img className='background' src={TugOfWarImage} alt='Tug of War' />
             <h1>{unit.name}</h1>
             <div id='score'>
