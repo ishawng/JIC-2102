@@ -67,7 +67,7 @@ function TugOfWarPage() {
 
             const newScore = currScore + 1;
             if (newScore === 8) {
-                // document.getElementById('score').childNodes[newScore].classList.add('green');
+                document.getElementById('score').childNodes[newScore].classList.add('green');
                 document.getElementById('game').style.display = 'none';
                 document.getElementById('postgame').style.display = 'flex';
                 document.getElementById('win-text').style.display = 'flex';
@@ -100,7 +100,7 @@ function TugOfWarPage() {
     console.log(state.questions[state.currQuestionIndex]);
 
     return (
-        <div className='tug-of-war-container'>
+        <div id='tug-of-war-container'>
             <img className='background' src={TugOfWarImage} alt='Tug of War' />
             <h1>{unit.name}</h1>
             <div id='score'>

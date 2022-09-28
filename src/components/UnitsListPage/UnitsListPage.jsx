@@ -10,7 +10,7 @@ function UnitButton(props) {
     return (
         <div>
             <Link to={STUDY_OPTIONS_PATH} state={unit}>
-                <button className="unit-button">
+                <button className='unit-button'>
                     {unit.name}
                 </button>
             </Link>
@@ -20,21 +20,15 @@ function UnitButton(props) {
 
 function UnitsListPage() {
     return (
-        <>
-            <div className="header">
-                <h3 className="header-text">
-                    Units
-                </h3>
-            </div>
-            <div className="units">
-                <UnitButton unit={getUnit(1)} />
-                <UnitButton unit={getUnit(2)} />
-                <UnitButton unit={getUnit(3)} />
-                <UnitButton unit={getUnit(4)} />
-                <UnitButton unit={getUnit(5)} />
-                <UnitButton unit={getUnit(6)} />
-            </div>
-        </>
+        <div id='units-container'>
+            <h1>Units</h1>
+            <UnitButton unit={getUnit(1)} />
+            <UnitButton unit={getUnit(2)} />
+            <UnitButton unit={getUnit(3)} />
+            <UnitButton unit={getUnit(4)} />
+            <UnitButton unit={getUnit(5)} />
+            <UnitButton unit={getUnit(6)} />
+        </div>
     );
 }
 

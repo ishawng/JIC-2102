@@ -1,10 +1,10 @@
-.tug-of-war-container {
+#tug-of-war-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.tug-of-war-container img.background {
+#tug-of-war-container img.background {
     min-height: 100%;
     min-width: 1024px;
     width: 100%;
@@ -16,54 +16,58 @@
 }
 
 @media screen and (max-width: 1024px) {
-    img.background {
+    #tug-of-war-container img.background {
         left: 50%;
         margin-left: -512px;
     }
 }
 
-.tug-of-war-container #pregame {
+#tug-of-war-container #score {
+    display: none;
+}
+
+#tug-of-war-container #pregame {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.tug-of-war-container #game {
+#tug-of-war-container #game {
     display: none;
     flex-direction: column;
     align-items: center;
 }
 
-.tug-of-war-container #postgame {
+#tug-of-war-container #postgame {
     display: none;
     flex-direction: column;
     align-items: center;
 }
 
-.tug-of-war-container #question-text {
+#tug-of-war-container #question-text {
     font-weight: bold;
     color: #de8c93;
 }
 
-.tug-of-war-container .gray {
+#tug-of-war-container .gray {
     fill: gray;
 }
 
-.tug-of-war-container .red {
+#tug-of-war-container .red {
     fill: red;
 }
 
-.tug-of-war-container .green {
+#tug-of-war-container .green {
     fill: green;
 }
 
-.tug-of-war-container #win-text {
+#tug-of-war-container #win-text {
     display: none;
     font-weight: bold;
     color: green;
 }
 
-.tug-of-war-container #lose-text {
+#tug-of-war-container #lose-text {
     display: none;
     font-weight: bold;
     color: red;
