@@ -1,28 +1,21 @@
-import React, { useState } from 'react'
-import FlashcardList from './FlashcardList';
-import './FlashcardStudyPage.css'
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import { getVocab } from '../../vocabData';
+import Flashcard from './Flashcard';
+import './FlashcardStudyPage.css';
 
 function FlashcardStudyPage() {
-  const [cards] = useState(SAMPLE_CARDS)
+    const location = useLocation();
+    const unit = location.state;
+    const cards = getVocab(unit.number);
 
-  return (
-    <FlashcardList flashcards={cards} />
-  );
+    return (
+        <div id='flashcard-container'>
+            {cards.map(flashcard => {
+                return <Flashcard flashcard={flashcard} />
+            })}
+        </div>
+    );
 }
-
-const SAMPLE_CARDS = [
-  {
-    english: 'name',
-    korean: '이름',
-  },
-  {
-    english: 'truly, really, very',
-    korean: '참',
-  },
-  {
-    english: 'science',
-    korean: '사이언스',
-  }
-]
 
 export default FlashcardStudyPage;

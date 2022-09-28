@@ -1,58 +1,68 @@
-.Background {
-    min-height: 100vh;
-    text-align: center;
-    background-image: url('./RedLightGreenLight.png');
-    /* background-size: contain; */
+.red-light-green-light-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.red {
-    fill: red;
-}
-
-.green {
-    fill: green;
-}
-
-#question-div {
-    visibility: hidden;
+.red-light-green-light-container .background-image {
+    min-height: 100%;
+    min-width: 1024px;
+    width: 100%;
+    height: auto;
     position: fixed;
-    left: 50%;
-    top: 60%;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
-#postgame-div {
-    visibility: hidden;
-    position: fixed;
-    left: 50%;
-    top: 60%;
+.red-light-green-light-container #pregame-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-#question-text {
+.red-light-green-light-container #game-div {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.red-light-green-light-container #postgame-div {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.red-light-green-light-container #question-text {
     font-weight: bold;
     color: #de8c93;
 }
 
-#win-text {
-    visibility: hidden;
+.red-light-green-light-container #win-text {
+    display: none;
     font-weight: bold;
     color: green;
 }
 
-#lose-text {
-    visibility: hidden;
+.red-light-green-light-container #lose-text {
+    display: none;
     font-weight: bold;
     color: red;
 }
 
-#start-game-button {
-    visibility: visible;
-}
-
-#light {
+.red-light-green-light-container #light {
     background-color: #B81D13;
     border-color: black;
     border-radius: 1rem;
     color: white;
     padding: 40px 40px;
     margin: 2rem;
+}
+
+.red-light-green-light-container .red {
+    fill: red;
+}
+
+.red-light-green-light-container .green {
+    fill: green;
 }
