@@ -17,29 +17,39 @@ function ScoreView() {
     );
 }
 
-
 function RedLightGreenLightPage() {
+    const RED = "#B81D13";
+    const GREEN = "#008450";
+    const QUESTION_RESPONSE_TIME = 5000;
     const location = useLocation();
     const unit = location.state;
-    const [nextColor, setNextColor] = useState("#008450");
     const [currQuestionIndex, setCurrQuestionIndex] = useState(0);
     const [currCorrectScore, setCurrCorrectScore] = useState(-1); // set as -1 so update to 0 in startGame() triggers rerender
-    const [currIncorrectScore, setCurrIncorrectScore] = useState(-1);
-    const [startTime, setStartTime] = useState(0);
-    const [endTime, setEndTime] = useState(0);
+    const [currIncorrectScore, setCurrIncorrectScore] = useState(0);
     const questions = getVocab(1);
+    var [timeoutId, setTimeoutId] = useState(null);
 
-    function flipLight() {
-        document.getElementById("light").style.backgroundColor = nextColor;
-        const nextColorUpdate = nextColor === "#008450" ? "#B81D13" : "#008450";
-        setNextColor(nextColorUpdate);
+    function allocateResponseTime(time = QUESTION_RESPONSE_TIME) {
+        document.getElementById("light").style.backgroundColor = GREEN;
+        clearTimeout(timeoutId); // clear previous time allocation
+
+        const prevScoreTotal = currCorrectScore + currIncorrectScore;
+        setTimeoutId(setTimeout(() => {
+            document.getElementById("light").style.backgroundColor = RED;
+            if (prevScoreTotal === currCorrectScore + currIncorrectScore) {
+                    document.getElementById('score-view').childNodes[currIncorrectScore].classList.add('red');
+                    setCurrIncorrectScore(currIncorrectScore + 1);
+                    if (currIncorrectScore === 2) {
+                        document.getElementById("game-div").style.display = "none";
+                        document.getElementById("postgame-div").style.display = "flex";
+                        document.getElementById("lose-text").style.display = "flex";
+                    }
+            }
+            setCurrQuestionIndex(currQuestionIndex + 1);
+        }, time));
     }
 
     function startGame() {
-        setTimeout(() => {
-
-        }, 5000);
-
         shuffleArray(questions);
         setCurrCorrectScore(0);
         setCurrIncorrectScore(0);
@@ -52,19 +62,14 @@ function RedLightGreenLightPage() {
         document.getElementById("postgame-div").style.display = "none";
         document.getElementById("game-div").style.display = "flex";
 
-        setStartTime(Date.now()); // TODO: figure out this logic
-
+        allocateResponseTime();
     }
 
     function submitAnswer() {
-        console.log((Date.now() - startTime) / 1000);
-
         const submission = document.getElementById('answer-input').value;
         document.getElementById('answer-input').value = '';
 
         if (submission === questions[currQuestionIndex].korean) {
-            // console.log("CORRECT");
-
             setCurrCorrectScore(currCorrectScore + 1);
             if (currCorrectScore === 5) {
                 document.getElementById("game-div").style.display = "none";
@@ -72,9 +77,6 @@ function RedLightGreenLightPage() {
                 document.getElementById("win-text").style.display = "flex";
             }
         } else {
-            // console.log("Question: " + questions[currQuestionIndex].english + "; Answer: " + questions[currQuestionIndex].korean)
-            // console.log("your incorrect answer: " + submission);
-
             document.getElementById('score-view').childNodes[currIncorrectScore].classList.add('red');
             setCurrIncorrectScore(currIncorrectScore + 1);
             if (currIncorrectScore === 2) {
@@ -84,6 +86,7 @@ function RedLightGreenLightPage() {
             }
         }
         setCurrQuestionIndex((currQuestionIndex + 1) % questions.length);
+        allocateResponseTime();
 
     }
 
