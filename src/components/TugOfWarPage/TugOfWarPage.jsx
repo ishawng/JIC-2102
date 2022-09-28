@@ -38,6 +38,7 @@ function TugOfWarPage() {
         document.getElementById('postgame').style.display = 'none';
         document.getElementById('win-text').style.display = 'none';
         document.getElementById('lose-text').style.display = 'none';
+
         const questions = state.questions;
         shuffleArray(questions);
         setState({
@@ -45,13 +46,13 @@ function TugOfWarPage() {
             currQuestionIndex: 0,
             score: 3,
         });
-        for (let i = 0; i < 8; i++) {
-            if (i === 3) {
-                continue;
-            }
-            let className = i < 3 ? 'red' : 'green';
-            document.getElementById('score').childNodes[i].classList.remove(className);
+
+        const scoreChildren = document.getElementById('score').childNodes;
+        for (let i = 0; i < scoreChildren.length; i++) {
+            scoreChildren[i].classList.remove('red', 'green');
         }
+
+        document.getElementById('score').style.display = 'flex';
         document.getElementById('game').style.display = 'flex';
     }
 
@@ -66,6 +67,7 @@ function TugOfWarPage() {
 
             const newScore = currScore + 1;
             if (newScore === 8) {
+                // document.getElementById('score').childNodes[newScore].classList.add('green');
                 document.getElementById('game').style.display = 'none';
                 document.getElementById('postgame').style.display = 'flex';
                 document.getElementById('win-text').style.display = 'flex';
@@ -81,6 +83,7 @@ function TugOfWarPage() {
 
             const newScore = currScore - 1;
             if (newScore === 0) {
+                // document.getElementById('score').childNodes[newScore].classList.add('red');
                 document.getElementById('game').style.display = 'none';
                 document.getElementById('postgame').style.display = 'flex';
                 document.getElementById('lose-text').style.display = 'flex';
@@ -100,18 +103,18 @@ function TugOfWarPage() {
         <div className='container'>
             <img className='background' src={TugOfWarImage} alt='Tug of War' />
             <h1>{unit.name}</h1>
+            <div id='score'>
+                <ScoreView />
+            </div>
             <div id='pregame'>
                 <button className='btn btn-primary' onClick={startGame}>Start Game</button>
             </div>
             <div id='game'>
-                <div id='score'>
-                    <ScoreView />
-                </div>
                 <div id='question'>
                     <h2>What is <span id="question-text">{state.questions[state.currQuestionIndex].english}</span> in Korean?</h2>
                 </div>
                 <div id='answer'>
-                    <input id='answer-input' type='text' autoComplete='off' />
+                    <input id='answer-input' type='text' autoComplete='off' onKeyDown={(event) => { if (event.key === 'Enter') submitAnswer(); }} />
                     <button className='btn btn-primary' onClick={submitAnswer}>Submit</button>
                 </div>
             </div>
