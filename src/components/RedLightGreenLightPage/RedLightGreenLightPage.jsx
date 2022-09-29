@@ -6,6 +6,7 @@ import { getVocab } from '../../vocabData'
 import { ReactComponent as CircleSvg } from '../../SharedImages/Circle.svg'
 import { ReactComponent as SkullSvg } from '../../SharedImages/Skull.svg'
 import './RedLightGreenLightPage.css';
+import { useEffect } from 'react';
 
 function ScoreView() {
     return (
@@ -27,27 +28,6 @@ function RedLightGreenLightPage() {
     const [currCorrectScore, setCurrCorrectScore] = useState(-1); // set as -1 so update to 0 in startGame() triggers rerender
     const [currIncorrectScore, setCurrIncorrectScore] = useState(0);
     const questions = getVocab(1);
-    var [timeoutId, setTimeoutId] = useState(null);
-
-    function allocateResponseTime(time = QUESTION_RESPONSE_TIME) {
-        document.getElementById("light").style.backgroundColor = GREEN;
-        clearTimeout(timeoutId); // clear previous time allocation
-
-        const prevScoreTotal = currCorrectScore + currIncorrectScore;
-        setTimeoutId(setTimeout(() => {
-            document.getElementById("light").style.backgroundColor = RED;
-            if (prevScoreTotal === currCorrectScore + currIncorrectScore) {
-                    document.getElementById('score-view').childNodes[currIncorrectScore].classList.add('red');
-                    setCurrIncorrectScore(currIncorrectScore + 1);
-                    if (currIncorrectScore === 2) {
-                        document.getElementById("game-div").style.display = "none";
-                        document.getElementById("postgame-div").style.display = "flex";
-                        document.getElementById("lose-text").style.display = "flex";
-                    }
-            }
-            setCurrQuestionIndex(currQuestionIndex + 1);
-        }, time));
-    }
 
     function startGame() {
         shuffleArray(questions);
@@ -61,9 +41,30 @@ function RedLightGreenLightPage() {
         document.getElementById("pregame-div").style.display = "none";
         document.getElementById("postgame-div").style.display = "none";
         document.getElementById("game-div").style.display = "flex";
-
-        allocateResponseTime();
     }
+
+    // Hook for repeating 5 second timer to answer question
+    useEffect(() => {
+        const prevScoreTotal = currCorrectScore + currIncorrectScore;
+        const interval = setInterval(() => {
+            if (document.getElementById("game-div").style.display === "flex") { // only execute when game is active
+                if (prevScoreTotal === currCorrectScore + currIncorrectScore) {
+                    document.getElementById("light").style.backgroundColor = RED;
+                    document.getElementById('score-view').childNodes[currIncorrectScore].classList.add('red');
+                    setCurrIncorrectScore(currIncorrectScore + 1);
+                    if (currIncorrectScore === 2) {
+                        document.getElementById("game-div").style.display = "none";
+                        document.getElementById("postgame-div").style.display = "flex";
+                        document.getElementById("lose-text").style.display = "flex";
+                    }
+                    // TODO: add pause here to give player time to prepare for next question
+                    setCurrQuestionIndex(currQuestionIndex + 1);
+                    document.getElementById("light").style.backgroundColor = GREEN;
+                }
+            }
+        }, QUESTION_RESPONSE_TIME);
+        return () => clearInterval(interval);
+    }, [currQuestionIndex]); // if currQuestionIndex changes, then the interval will be reset
 
     function submitAnswer() {
         const submission = document.getElementById('answer-input').value;
@@ -86,8 +87,6 @@ function RedLightGreenLightPage() {
             }
         }
         setCurrQuestionIndex((currQuestionIndex + 1) % questions.length);
-        allocateResponseTime();
-
     }
 
     console.log(questions[currQuestionIndex]);
