@@ -1,8 +1,13 @@
+body {
+      margin-top: -70px;
+}
+
 .home-container {
   background-color: black;
-  background-image: url('./homepageArt.png');
-  background-size: cover;
-  height: 120vh;
+  background-image: url('./homepageArt2.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -14,11 +19,12 @@
 .left-home-section {
   width: 40%;
   padding-left: 10rem;
-  padding-bottom: 4rem;
 }
 
-.title {
+.title>h1 {
   color: rgb(255, 255, 255);
+  font-size: 50px;
+  padding-bottom: 20px;
 }
 
 .caption{
