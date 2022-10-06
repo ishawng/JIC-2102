@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { shuffleArray } from '../../utils';
-import RedLightGreenLightImage from './RedLightGreenLight.png';
+import RedLightGreenLightImage from './rlglart2.png';
 import { getVocab } from '../../vocabData'
 import { ReactComponent as CircleSvg } from '../../SharedImages/Circle.svg'
 import { ReactComponent as SkullSvg } from '../../SharedImages/Skull.svg'
