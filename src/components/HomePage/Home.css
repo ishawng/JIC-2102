@@ -1,30 +1,52 @@
 .home-container {
-    /* background: url('../black.jpg') center center/cover no-repeat; */
-    background-color: black;
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2); */
-    object-fit: contain;
+  margin-top: -70px;
+  background-color: black;
+  background-image: url('./homepageArt2.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  position: relative;
+  align-items: center;
 }
 
-.home-container>h1 {
-    color: rgb(255, 255, 255);
-    font-size: 100px;
-    margin-top: -100px;
+.home-container .left-home-section {
+  width: 40%;
+  padding-left: 10rem;
 }
 
-.home-play {
+.home-container .title>h1 {
+  color: rgb(255, 255, 255);
+  font-size: 50px;
+  padding-bottom: 20px;
+}
 
+.home-container .caption{
+  color: rgb(181, 181, 181);
+}
+
+.home-container .home-play {
     margin-top: 32px;
 }
 
-.home-btns .btn {
-    margin: 6px;
+.home-container .home-btns .btn {
+    margin: 7px;
+} 
+
+.home-container .right-home-section {
+  width: 0%;
 }
+
+
+/* @media screen and (max-width: 1024px) {
+  img.background {
+      left: 50%;
+      margin-left: -512px;
+  }
+} */
 
 /* .fa-play-circle {
 margin-left: 4px;

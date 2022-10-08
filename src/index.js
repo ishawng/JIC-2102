@@ -21,7 +21,7 @@ root.render(
             <Route path={STUDY_OPTIONS_PATH} element={<StudyOptionsPage />} />
             <Route path={RED_LIGHT_GREEN_LIGHT_PATH} element={<RedLightGreenLightPage />} />
             <Route path={TUG_OF_WAR_PATH} element={<TugOfWarPage />} />
-            <Route path={FLASHCARD_STUDY_PATH} element={<FlashcardStudyPage /> } />
+            <Route path={FLASHCARD_STUDY_PATH} element={<FlashcardStudyPage />} />
         </Routes>
     </Router>
 );

@@ -7,16 +7,21 @@ import './Home.css';
 function Home() {
     return (
         <div className='home-container'>
-            {/* image */}
-            <h1>KOREAN LANGUAGE GAME</h1>
-            <div className="home-play">
-                <Link to={UNITS_LIST_PATH}>
-                    <Button className='btn' buttonStyle='btn-primary' buttonSize='btn-large'>
-                        PLAY
-                    </Button>
-                </Link>
+            <div className='left-home-section'>
+                <div className='title'><h1>KOREAN <br/> LANGUAGE <br/> GAME</h1></div>
+                <div className='caption'><h5>Whether you're here for class or just for learning the basic Korean language, there's a spot for you in our game</h5></div>
+                <div className="home-play">
+                    <Link to={UNITS_LIST_PATH}>
+                        <Button className='btn' buttonStyle='btn-primary' buttonSize='btn-large'>
+                            PLAY
+                        </Button>
+                    </Link>
+                </div>
+            </div>
+            <div className="right-home-section">
 
             </div>
+            
         </div>
     )
 }

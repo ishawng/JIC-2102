@@ -1,24 +1,24 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { HOME_PATH, UNITS_LIST_PATH } from '../../constants';
+import KLGLogo from './klglogo.png'
 import './Navbar.css';
 
 function Navbar() {
-    const click = useState(false);
+    // const click = useState(false);
     // const [click, setClick] = useState(false);
     // const handleClick = () => setClick(!click);
     return (
-        <>
-            <nav className="navbar">
-                <div className="navbar-container">
-                    <Link to={HOME_PATH} className="navbar-logo">
-                        KLG {/* Add icon later 13:15 in tutorial */}
-                    </Link>
-                    {/* <div className="menu-icon">
-                        <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
-                    </div> at  19:00, horiz bars check if we want that */ }
-                </div>
-                <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+        <nav className="navbar">
+
+            <div className="logo">
+                <Link to={HOME_PATH} className="navbar-logo">
+                    <img src={KLGLogo} alt="KLG" width="50" height="50"/>
+                </Link>
+            </div>
+            
+            <div className="other-links">
+                <ul className='nav-menu'>
                     <li className="nav-item">
                         <Link to={UNITS_LIST_PATH} className="nav-links">
                             Units
@@ -30,8 +30,9 @@ function Navbar() {
                         </Link>
                     </li>
                 </ul>
-            </nav>
-        </>
+            </div>
+            
+        </nav>
     )
 }
 

@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { shuffleArray } from '../../utils';
+import RedLightGreenLightImage from './rlglart2.png';
 import { getVocab } from '../../vocabData'
 import { ReactComponent as CircleSvg } from '../../SharedImages/Circle.svg'
 import { ReactComponent as SkullSvg } from '../../SharedImages/Skull.svg'
 import './RedLightGreenLightPage.css';
+import { useEffect } from 'react';
 
 function ScoreView() {
     return (
@@ -15,19 +18,16 @@ function ScoreView() {
     );
 }
 
-
 function RedLightGreenLightPage() {
-    const [nextColor, setNextColor] = useState("#008450");
+    const RED = "#B81D13";
+    const GREEN = "#008450";
+    const QUESTION_RESPONSE_TIME = 5000;
+    const location = useLocation();
+    const unit = location.state;
     const [currQuestionIndex, setCurrQuestionIndex] = useState(0);
     const [currCorrectScore, setCurrCorrectScore] = useState(-1); // set as -1 so update to 0 in startGame() triggers rerender
-    const [currIncorrectScore, setCurrIncorrectScore] = useState(-1);
+    const [currIncorrectScore, setCurrIncorrectScore] = useState(0);
     const questions = getVocab(1);
-
-    function flipLight() {
-        document.getElementById("light").style.backgroundColor = nextColor;
-        const nextColorUpdate = nextColor === "#008450" ? "#B81D13" : "#008450";
-        setNextColor(nextColorUpdate);
-    }
 
     function startGame() {
         shuffleArray(questions);
@@ -38,50 +38,74 @@ function RedLightGreenLightPage() {
             document.getElementById("score-view").childNodes[i].classList.remove("red");
         }
 
-        document.getElementById("start-game-button").style.visibility = "hidden";
-        document.getElementById("postgame-div").style.visibility = "hidden";
-        document.getElementById("question-div").style.visibility = "visible";
+        document.getElementById("pregame-div").style.display = "none";
+        document.getElementById("postgame-div").style.display = "none";
+        document.getElementById("game-div").style.display = "flex";
     }
+
+    // Hook for repeating 5 second timer to answer question
+    useEffect(() => {
+        const prevScoreTotal = currCorrectScore + currIncorrectScore;
+        const interval = setInterval(() => {
+            if (document.getElementById("game-div").style.display === "flex") { // only execute when game is active
+                if (prevScoreTotal === currCorrectScore + currIncorrectScore) {
+                    document.getElementById("light").style.backgroundColor = RED;
+                    document.getElementById('score-view').childNodes[currIncorrectScore].classList.add('red');
+                    setCurrIncorrectScore(currIncorrectScore + 1);
+                    if (currIncorrectScore === 2) {
+                        document.getElementById("game-div").style.display = "none";
+                        document.getElementById("postgame-div").style.display = "flex";
+                        document.getElementById("lose-text").style.display = "flex";
+                    }
+                    // TODO: add pause here to give player time to prepare for next question
+                    setCurrQuestionIndex(currQuestionIndex + 1);
+                    document.getElementById("light").style.backgroundColor = GREEN;
+                }
+            }
+        }, QUESTION_RESPONSE_TIME);
+        return () => clearInterval(interval);
+    }, [currQuestionIndex]); // if currQuestionIndex changes, then the interval will be reset
 
     function submitAnswer() {
         const submission = document.getElementById('answer-input').value;
         document.getElementById('answer-input').value = '';
 
         if (submission === questions[currQuestionIndex].korean) {
-            // console.log("CORRECT");
-
             setCurrCorrectScore(currCorrectScore + 1);
+            if (currCorrectScore === 5) {
+                document.getElementById("game-div").style.display = "none";
+                document.getElementById("postgame-div").style.display = "flex";
+                document.getElementById("win-text").style.display = "flex";
+            }
         } else {
-            // console.log("Question: " + questions[currQuestionIndex].english + "; Answer: " + questions[currQuestionIndex].korean)
-            // console.log("your incorrect answer: " + submission);
-
             document.getElementById('score-view').childNodes[currIncorrectScore].classList.add('red');
             setCurrIncorrectScore(currIncorrectScore + 1);
             if (currIncorrectScore === 2) {
-                document.getElementById("question-div").style.visibility = "hidden";
-                document.getElementById("postgame-div").style.visibility = "visible";
-                document.getElementById("lose-text").style.visibility = "visible";
+                document.getElementById("game-div").style.display = "none";
+                document.getElementById("postgame-div").style.display = "flex";
+                document.getElementById("lose-text").style.display = "flex";
             }
         }
         setCurrQuestionIndex((currQuestionIndex + 1) % questions.length);
-
     }
 
     console.log(questions[currQuestionIndex]);
 
     return (
-        <div className="Background">
+        <div className="red-light-green-light-container">
             {console.log("rerender")}
-            <button id="light"></button>
-            <br></br>
-            <button id="start-game-button" onClick={startGame}>Start Game</button>
-            <div id="question-div">
+            <img className="background-image" src={RedLightGreenLightImage} alt="Red Light Green Light" />
+            <h1>{unit.name}</h1>
+            <div id="pregame-div">
+                <button className="btn btn-primary" onClick={startGame}>Start Game</button>
+            </div>
+            <div id="game-div">
+                <button id="light"></button>
                 <div id="score-view">
                     <ScoreView />
                 </div>
                 <h4>Question:</h4>
                 <h2>What is <span id="question-text">{questions[currQuestionIndex].english}</span> in Korean?</h2>
-                <h4>Answer:</h4>
                 <div id='answer'>
                     <input id='answer-input' type='text' autoComplete='off' />
                     <button className='btn btn-primary' onClick={submitAnswer}>Submit</button>
