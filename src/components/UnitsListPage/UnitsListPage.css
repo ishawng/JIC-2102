@@ -10,7 +10,8 @@
     border: 1px solid black;
     border-radius: 1rem;
     color: white;
-    font-size: larger;
+    text-shadow: -1px 0 darkgrey, 0 1px darkgrey, 1px 0 darkgrey, 0 -1px darkgrey;
+    font-size: xx-large;
     margin: 10px;
     padding: 40px 40px;
     width: 30rem;
