@@ -4,7 +4,7 @@
     justify-content: flex-start;
     align-items: baseline;
     font-size: 1.2rem;
-    position: sticky;
+    position: initial;
     top: 25px;
     z-index: 999;
 }
