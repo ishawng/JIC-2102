@@ -4,6 +4,7 @@ import { getVocab } from '../../vocabData';
 import Flashcard from './Flashcard';
 import './FlashcardStudyPage.css';
 
+
 function FlashcardStudyPage() {
     const location = useLocation();
     const unit = location.state;
