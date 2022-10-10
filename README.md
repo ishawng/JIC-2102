@@ -3,6 +3,19 @@ A react app created to gamify the learning of KOR 1001 at Georgia Tech. The app 
 
 # Release Notes
 
+## Version 0.2.0
+
+### New Features
+Our goal for the second sprint was to implement the flashcards for each unit, a more fleshed out version of our minigames, and more art for all the pages throughout the web app.
+* Home page with custom art, new title, and introduction to the web app
+* Click interactive and unique flashcards for each unit
+* Red light green light minigame now has custom art and functionality to be able to play the game
+* Tug of war minigame now has custom art and functionality to be able to play the game
+
+### Bug Fixes
+* Basic CSS fixes throughout the web app to clean up interface/styling
+
+
 ## Version 0.1.0
 
 ### New Features
