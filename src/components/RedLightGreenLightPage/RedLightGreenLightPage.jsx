@@ -21,15 +21,19 @@ function ScoreView() {
 function RedLightGreenLightPage() {
     const RED = "#B81D13";
     const GREEN = "#008450";
-    const QUESTION_RESPONSE_TIME = 5000;
+    const EASY_QUESTION_RESPONSE_TIME = 12000;
+    const MEDIUM_QUESTION_RESPONSE_TIME = 8000;
+    const HARD_QUESTION_RESPONSE_TIME = 5000;
     const location = useLocation();
     const unit = location.state;
+    const [questionResponseTime, setQuestionResponseTime] = useState(5000);
     const [currQuestionIndex, setCurrQuestionIndex] = useState(0);
     const [currCorrectScore, setCurrCorrectScore] = useState(-1); // set as -1 so update to 0 in startGame() triggers rerender
     const [currIncorrectScore, setCurrIncorrectScore] = useState(0);
     const questions = getVocab(1);
 
-    function startGame() {
+    function startGame(time) {
+        setQuestionResponseTime(time);
         shuffleArray(questions);
         setCurrCorrectScore(0);
         setCurrIncorrectScore(0);
@@ -43,7 +47,12 @@ function RedLightGreenLightPage() {
         document.getElementById("game-div").style.display = "flex";
     }
 
-    // Hook for repeating 5 second timer to answer question
+    function playAgain() {
+        document.getElementById("pregame-div").style.display = "inline-block";
+        document.getElementById("postgame-div").style.display = "none";
+    }
+
+    // Hook for repeating questionResponseTime second timer to answer question
     useEffect(() => {
         const prevScoreTotal = currCorrectScore + currIncorrectScore;
         const interval = setInterval(() => {
@@ -62,9 +71,9 @@ function RedLightGreenLightPage() {
                     document.getElementById("light").style.backgroundColor = GREEN;
                 }
             }
-        }, QUESTION_RESPONSE_TIME);
+        }, questionResponseTime);
         return () => clearInterval(interval);
-    }, [currQuestionIndex]); // if currQuestionIndex changes, then the interval will be reset
+    }, [currQuestionIndex, currCorrectScore, currIncorrectScore, questionResponseTime]); // if one of these changes, then the interval will be reset
 
     function submitAnswer() {
         const submission = document.getElementById('answer-input').value;
@@ -99,7 +108,9 @@ function RedLightGreenLightPage() {
                 <img className="background-image" src={RedLightGreenLightImage} alt="Red Light Green Light" />
                 <h1>{unit.name}</h1>
                 <div id="pregame-div">
-                    <button className="btn btn-primary" onClick={startGame}>Start Game</button>
+                    <button className="btn btn-primary" onClick={() => startGame(EASY_QUESTION_RESPONSE_TIME)}>Easy</button>
+                    <button className="btn btn-primary" onClick={() => startGame(MEDIUM_QUESTION_RESPONSE_TIME)}>Medium</button>
+                    <button className="btn btn-primary" onClick={() => startGame(HARD_QUESTION_RESPONSE_TIME)}>Hard</button>
                 </div>
                 <div id="game-div">
                     <button id="light"></button>
@@ -116,7 +127,7 @@ function RedLightGreenLightPage() {
                 <div id='postgame-div'>
                     <h2 id='win-text'>You win!</h2>
                     <h2 id='lose-text'>You lose!</h2>
-                    <button className='btn btn-primary' onClick={startGame}>Play Again</button>
+                    <button className='btn btn-primary' onClick={playAgain}>Play Again</button>
                 </div>
             </div>
         </div>
