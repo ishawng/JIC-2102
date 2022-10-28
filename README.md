@@ -3,6 +3,20 @@ A react app created to gamify the learning of KOR 1001 at Georgia Tech. The app 
 
 # Release Notes
 
+## Version 0.3.0
+
+### New Features
+Our goal for the third sprint was to incorporate grammar questions into our learning minigames, as well as add difficulty levels to the Red Light Green Light minigame.
+* Easy, Medium, and Hard difficulty level settings added to Red Light Green Light minigame. The difficulty choice corresponds to how long the user has to answer a question before the light turns red.
+* Option to play the Red Light Green Light minigame in grammar question mode.
+* Option to play the Tug of War minigame in grammar mode.
+
+### Bug Fixes
+* Fixed issue with Red Light Green Light minigame where a user not answering a question resulted in the loss of multiple lives.
+
+### Known Issues
+* The light does not change to red when a user incorrectly answers a question in the Red Light Green Light minigame.
+
 ## Version 0.2.0
 
 ### New Features
