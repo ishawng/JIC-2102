@@ -35,6 +35,12 @@
     align-items: center;
 }
 
+.red-light-green-light-container #question-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .red-light-green-light-container #postgame-div {
     display: none;
     flex-direction: column;
