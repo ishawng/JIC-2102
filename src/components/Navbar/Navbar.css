@@ -9,7 +9,7 @@
     z-index: 999;
 }
 
-.logo{
+.logo {
     margin-left: 30px;
     margin-right: 10px;
     margin-bottom: 30px;
@@ -21,16 +21,17 @@
 
 }
 
-.nav-item > a {
+.nav-item>a {
     color: white;
     text-decoration: none;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 
 }
 
-.nav-item >a:hover {
+.nav-item>a:hover {
     text-decoration: underline;
 }
+
 /* .navbar-container {
     display: flex;
     justify-content: center;
