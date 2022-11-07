@@ -2,11 +2,21 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { shuffleArray } from '../../utils';
 import { getVocab } from '../../vocabData';
-import TugOfWarImage from './TugOfWar.png';
+import Score0 from './resources/score0.png';
+import Score1 from './resources/score1.png';
+import Score2 from './resources/score2.png';
+import Score3 from './resources/score3.png';
+import Score4 from './resources/score4.png';
+import Score5 from './resources/score5.png';
+import Score6 from './resources/score6.png';
+import Score7 from './resources/score7.png';
+import Score8 from './resources/score8.png';
 import { ReactComponent as CircleSvg } from '../../SharedImages/Circle.svg'
 import { ReactComponent as FlagSvg } from '../../SharedImages/Flag.svg'
 import { ReactComponent as SkullSvg } from '../../SharedImages/Skull.svg'
 import './TugOfWarPage.css'
+
+const BACKGROUND_IMAGES = [Score0, Score1, Score2, Score3, Score4, Score5, Score6, Score7, Score8];
 
 function ScoreView() {
     return (
@@ -83,7 +93,7 @@ function TugOfWarPage() {
 
             const newScore = currScore - 1;
             if (newScore === 0) {
-                // document.getElementById('score').childNodes[newScore].classList.add('red');
+                document.getElementById('score').childNodes[newScore].classList.add('red');
                 document.getElementById('game').style.display = 'none';
                 document.getElementById('postgame').style.display = 'flex';
                 document.getElementById('lose-text').style.display = 'flex';
@@ -101,27 +111,29 @@ function TugOfWarPage() {
 
     return (
         <div id='tug-of-war-container'>
-            <img className='background' src={TugOfWarImage} alt='Tug of War' />
-            <h1>{unit.name}</h1>
-            <div id='score'>
-                <ScoreView />
-            </div>
-            <div id='pregame'>
-                <button className='btn btn-primary' onClick={startGame}>Start Game</button>
-            </div>
-            <div id='game'>
-                <div id='question'>
-                    <h2>What is <span id="question-text">{state.questions[state.currQuestionIndex].english}</span> in Korean?</h2>
+            <img className='background' src={BACKGROUND_IMAGES[state.score]} alt='Tug of War' />
+            <div id='header'>
+                <h1>{unit.name}</h1>
+                <div id='score'>
+                    <ScoreView />
                 </div>
-                <div id='answer'>
-                    <input id='answer-input' type='text' autoComplete='off' onKeyDown={(event) => { if (event.key === 'Enter') submitAnswer(); }} />
-                    <button className='btn btn-primary' onClick={submitAnswer}>Submit</button>
+                <div id='pregame'>
+                    <button className='btn btn-primary' onClick={startGame}>Start Game</button>
                 </div>
-            </div>
-            <div id='postgame'>
-                <h2 id='win-text'>You win!</h2>
-                <h2 id='lose-text'>You lose!</h2>
-                <button className='btn btn-primary' onClick={startGame}>Play Again</button>
+                <div id='game'>
+                    <div id='question'>
+                        <h2>What is <span id="question-text">{state.questions[state.currQuestionIndex].english}</span> in Korean?</h2>
+                    </div>
+                    <div id='answer'>
+                        <input id='answer-input' type='text' autoComplete='off' onKeyDown={(event) => { if (event.key === 'Enter') submitAnswer(); }} />
+                        <button className='btn btn-primary' onClick={submitAnswer}>Submit</button>
+                    </div>
+                </div>
+                <div id='postgame'>
+                    <h2 id='win-text'>You win!</h2>
+                    <h2 id='lose-text'>You lose!</h2>
+                    <button className='btn btn-primary' onClick={startGame}>Play Again</button>
+                </div>
             </div>
         </div>
     );
