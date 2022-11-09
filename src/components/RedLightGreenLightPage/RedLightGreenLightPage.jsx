@@ -120,30 +120,32 @@ function RedLightGreenLightPage() {
             <div className="red-light-green-light-container">
                 {/* {console.log("rerender")} */}
                 <img className="background-image" src={RedLightGreenLightImage} alt="Red Light Green Light" />
-                <h1>{unit.name}</h1>
-                <div id="pregame-div">
-                    <button className="btn btn-primary" onClick={() => startGame(EASY_QUESTION_RESPONSE_TIME)}>Easy</button>
-                    <button className="btn btn-primary" onClick={() => startGame(MEDIUM_QUESTION_RESPONSE_TIME)}>Medium</button>
-                    <button className="btn btn-primary" onClick={() => startGame(HARD_QUESTION_RESPONSE_TIME)}>Hard</button>
-                </div>
-                <div id="game-div">
-                    <button id="light"></button>
-                    <div id="score-view">
-                        <ScoreView />
+                <div id="header">
+                    <h1>{unit.name}</h1>
+                    <div id="pregame-div">
+                        <button className="btn btn-primary" onClick={() => startGame(EASY_QUESTION_RESPONSE_TIME)}>Easy</button>
+                        <button className="btn btn-primary" onClick={() => startGame(MEDIUM_QUESTION_RESPONSE_TIME)}>Medium</button>
+                        <button className="btn btn-primary" onClick={() => startGame(HARD_QUESTION_RESPONSE_TIME)}>Hard</button>
                     </div>
-                    <div id="question-div">
-                    <h4>Question:</h4>
-                        <h2>What is <span id="question-text">{questions[currQuestionIndex].english}</span> in Korean?</h2>
-                        <div id='answer'>
-                            <input id='answer-input' type='text' autoComplete='off' />
-                            <button className='btn btn-primary' onClick={submitAnswer}>Submit</button>
+                    <div id="game-div">
+                        <button id="light"></button>
+                        <div id="score-view">
+                            <ScoreView />
+                        </div>
+                        <div id="question-div">
+                        <h4>Question:</h4>
+                            <h2>What is <span id="question-text">{questions[currQuestionIndex].english}</span> in Korean?</h2>
+                            <div id='answer'>
+                                <input id='answer-input' type='text' autoComplete='off' />
+                                <button className='btn btn-primary' onClick={submitAnswer}>Submit</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div id='postgame-div'>
-                    <h2 id='win-text'>You win!</h2>
-                    <h2 id='lose-text'>You lose!</h2>
-                    <button className='btn btn-primary' onClick={playAgain}>Play Again</button>
+                    <div id='postgame-div'>
+                        <h2 id='win-text'>You win!</h2>
+                        <h2 id='lose-text'>You lose!</h2>
+                        <button className='btn btn-primary' onClick={playAgain}>Play Again</button>
+                    </div>
                 </div>
             </div>
         </div>
