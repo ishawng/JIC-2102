@@ -24,7 +24,7 @@ function RedLightGreenLightPage() {
     const EASY_QUESTION_RESPONSE_TIME = 12000;
     const MEDIUM_QUESTION_RESPONSE_TIME = 8000;
     const HARD_QUESTION_RESPONSE_TIME = 5000;
-    const RED_LIGHT_PAUSE_TIME = 2500;
+    const RED_LIGHT_PAUSE_TIME = 2000;
     const location = useLocation();
     const unit = location.state;
     const [questionResponseTime, setQuestionResponseTime] = useState(5000);
@@ -33,8 +33,15 @@ function RedLightGreenLightPage() {
     const [currIncorrectScore, setCurrIncorrectScore] = useState(0);
     const questions = getVocab(1);
 
-    function startGame(time) {
-        setQuestionResponseTime(time);
+    function startGame() {
+        const difficulty = document.querySelector('input[name="difficulty"]:checked').value;
+        if (difficulty === "easy") {
+            setQuestionResponseTime(EASY_QUESTION_RESPONSE_TIME);
+        } else if (difficulty === "medium") {
+            setQuestionResponseTime(MEDIUM_QUESTION_RESPONSE_TIME);
+        } else {
+            setQuestionResponseTime(HARD_QUESTION_RESPONSE_TIME);
+        }
         shuffleArray(questions);
         setCurrCorrectScore(1);
         setCurrIncorrectScore(0);
@@ -49,7 +56,7 @@ function RedLightGreenLightPage() {
     }
 
     function playAgain() {
-        document.getElementById("pregame-div").style.display = "inline-block";
+        document.getElementById("pregame-div").style.display = "flex";
         document.getElementById("postgame-div").style.display = "none";
     }
 
@@ -123,9 +130,18 @@ function RedLightGreenLightPage() {
                 <div id="header">
                     <h1>{unit.name}</h1>
                     <div id="pregame-div">
-                        <button className="btn btn-primary" onClick={() => startGame(EASY_QUESTION_RESPONSE_TIME)}>Easy</button>
+                        {/* <button className="btn btn-primary" onClick={() => startGame(EASY_QUESTION_RESPONSE_TIME)}>Easy</button>
                         <button className="btn btn-primary" onClick={() => startGame(MEDIUM_QUESTION_RESPONSE_TIME)}>Medium</button>
-                        <button className="btn btn-primary" onClick={() => startGame(HARD_QUESTION_RESPONSE_TIME)}>Hard</button>
+                        <button className="btn btn-primary" onClick={() => startGame(HARD_QUESTION_RESPONSE_TIME)}>Hard</button> */}
+                        <div id="difficulty-div">
+                            <input type="radio" id="easy" name="difficulty" value="easy"></input>
+                            <label for="easy">Easy</label>
+                            <input type="radio" id="medium" name="difficulty" value="medium"></input>
+                            <label for="medium">Medium</label>
+                            <input type="radio" id="hard" name="difficulty" value="hard"></input>
+                            <label for="hard">Hard</label>
+                        </div>
+                        <button className="btn btn-primary" onClick={startGame}>Start Game</button>
                     </div>
                     <div id="game-div">
                         <button id="light"></button>

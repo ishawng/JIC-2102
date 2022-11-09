@@ -32,8 +32,17 @@
     background-color: aliceblue;
 }
 
+input[type="radio"] {
+    margin-left: 10px;
+    margin-right: 2.5px;
+}
+
+.red-light-green-light-container #difficulty-div {
+    margin-bottom: 10px;
+}
+
 .red-light-green-light-container #pregame-div {
-    display: inline-block;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
