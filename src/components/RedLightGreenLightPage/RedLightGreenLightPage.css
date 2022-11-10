@@ -4,7 +4,7 @@
 }
 
 .rlgl-full-container .empty-div {
-    width: 60%;
+    width: 55%;
 }
 .red-light-green-light-container {
     display: flex;
@@ -23,8 +23,26 @@
     z-index: -1;
 }
 
+.red-light-green-light-container #header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: aliceblue;
+}
+
+input[type="radio"] {
+    margin-left: 10px;
+    margin-right: 2.5px;
+}
+
+.red-light-green-light-container #settings-div {
+    margin-bottom: 10px;
+}
+
 .red-light-green-light-container #pregame-div {
-    display: inline-block;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
