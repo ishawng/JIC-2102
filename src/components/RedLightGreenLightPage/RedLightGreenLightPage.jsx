@@ -39,7 +39,7 @@ function RedLightGreenLightPage() {
         const difficulty = document.querySelector('input[name="difficulty"]:checked').value;
         setQuestionLanguage(document.querySelector('input[name="question-language"]:checked').value);
         setAnswerLanguage(document.querySelector('input[name="question-language"]:checked').value === "korean" ? "english" : "korean");
-        const answerType = document.querySelector('input[name="answer-type"]:checked').value;
+        // const answerType = document.querySelector('input[name="answer-type"]:checked').value;
 
         if (difficulty === "easy") {
             setQuestionResponseTime(EASY_QUESTION_RESPONSE_TIME);
@@ -152,12 +152,12 @@ function RedLightGreenLightPage() {
                             <label for="korean">Korean</label>
                             <input type="radio" id="english" name="question-language" value="english"></input>
                             <label for="english">English</label>
-                            <br></br>
+                            {/* <br></br>
                             <b>Answer Type:</b>
                             <input type="radio" id="typed" name="answer-type" value="typed-choice"></input>
                             <label for="typed">Typed</label>
                             <input type="radio" id="multiple-choice" name="answer-type" value="multiple-choice"></input>
-                            <label for="multiple-choice">Multiple Choice</label>
+                            <label for="multiple-choice">Multiple Choice</label> */}
                         </div>
                         <button className="btn btn-primary" onClick={startGame}>Start Game</button>
                     </div>
@@ -168,7 +168,7 @@ function RedLightGreenLightPage() {
                         </div>
                         <div id="question-div">
                         <h4>Question:</h4>
-                            <h2>What is <span id="question-text">{questions[currQuestionIndex][answerLanguage]}</span> in {questionLanguage}?</h2>
+                            <h2>What is <span id="question-text">{questions[currQuestionIndex][answerLanguage]}</span> in {questionLanguage.charAt(0).toUpperCase() + questionLanguage.slice(1)}?</h2>
                             <div id='answer'>
                                 <input id='answer-input' type='text' autoComplete='off' />
                                 <button className='btn btn-primary' onClick={submitAnswer}>Submit</button>
