@@ -37,8 +37,8 @@ function RedLightGreenLightPage() {
 
     function startGame() {
         const difficulty = document.querySelector('input[name="difficulty"]:checked').value;
-        setQuestionLanguage(document.querySelector('input[name="question-language"]:checked').value);
-        setAnswerLanguage(document.querySelector('input[name="question-language"]:checked').value === "korean" ? "english" : "korean");
+        setAnswerLanguage(document.querySelector('input[name="answer-language"]:checked').value);
+        setQuestionLanguage(document.querySelector('input[name="answer-language"]:checked').value === "korean" ? "english" : "korean");
         // const answerType = document.querySelector('input[name="answer-type"]:checked').value;
 
         if (difficulty === "easy") {
@@ -99,7 +99,7 @@ function RedLightGreenLightPage() {
         const submission = document.getElementById('answer-input').value;
         document.getElementById('answer-input').value = '';
 
-        if (submission === questions[currQuestionIndex][questionLanguage]) {
+        if (submission === questions[currQuestionIndex][answerLanguage]) {
             setCurrCorrectScore(currCorrectScore + 1);
             if (currCorrectScore === 5) {
                 document.getElementById("game-div").style.display = "none";
@@ -147,10 +147,10 @@ function RedLightGreenLightPage() {
                             <input type="radio" id="hard" name="difficulty" value="hard"></input>
                             <label for="hard">Hard</label>
                             <br></br>
-                            <b>Question Language:</b>
-                            <input type="radio" id="korean" name="question-language" value="korean"></input>
+                            <b>Answer Language:</b>
+                            <input type="radio" id="korean" name="answer-language" value="korean"></input>
                             <label for="korean">Korean</label>
-                            <input type="radio" id="english" name="question-language" value="english"></input>
+                            <input type="radio" id="english" name="answer-language" value="english"></input>
                             <label for="english">English</label>
                             {/* <br></br>
                             <b>Answer Type:</b>
@@ -168,7 +168,7 @@ function RedLightGreenLightPage() {
                         </div>
                         <div id="question-div">
                         <h4>Question:</h4>
-                            <h2>What is <span id="question-text">{questions[currQuestionIndex][answerLanguage]}</span> in {questionLanguage.charAt(0).toUpperCase() + questionLanguage.slice(1)}?</h2>
+                            <h2>What is <span id="question-text">{questions[currQuestionIndex][questionLanguage]}</span> in {answerLanguage.charAt(0).toUpperCase() + answerLanguage.slice(1)}?</h2>
                             <div id='answer'>
                                 <input id='answer-input' type='text' autoComplete='off' />
                                 <button className='btn btn-primary' onClick={submitAnswer}>Submit</button>
