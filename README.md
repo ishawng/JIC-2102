@@ -3,6 +3,17 @@ A react app created to gamify the learning of KOR 1001 at Georgia Tech. The app 
 
 # Release Notes
 
+## Version 0.4.0
+
+### New Features
+Our goal for the fourth sprint was to have a playable and nearly finalized version of the minigames. Both games have updated art, animations, game modes, and UI, and all new updates to the games are successfully working.
+* Answer Language settings added to Red Light Green Light minigame. The answer language corresponds to which language the user wants to answer the question in.
+* Working animations for both the Red Light Green Light and the Tug of War minigames.
+* Play again options added for both Red Light Green Light and the Tug of War. The play again option allows the user to reset the game settings, which are the difficulty level and answer language settings, and then replay the game. 
+
+### Bug Fixes
+* Fixed issue with Red Light Green Light UI where the question div would move depending on the length of the question.
+
 ## Version 0.3.0
 
 ### New Features
