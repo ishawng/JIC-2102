@@ -84,6 +84,7 @@ function RedLightGreenLightPage() {
         const interval = setInterval(() => {
             if (document.getElementById("game-div").style.display === "flex") { // only execute when game is active
                 if (prevScoreTotal === currCorrectScore + currIncorrectScore) {
+                    handlePlay();
                     document.getElementById("light").style.backgroundColor = RED;
                     document.getElementById('score-view').childNodes[currIncorrectScore].classList.add('red');
                     document.getElementById("question-div").style.display = "none";
@@ -95,6 +96,7 @@ function RedLightGreenLightPage() {
                     }
                     // No answer but game not over; pause on red light before next question
                     setTimeout(() => {
+                        handlePause();
                         document.getElementById("light").style.backgroundColor = GREEN;
                         setCurrQuestionIndex((currQuestionIndex + 1) % questions.length);
                         document.getElementById("question-div").style.display = "flex";
@@ -106,7 +108,7 @@ function RedLightGreenLightPage() {
     }, [currQuestionIndex, currCorrectScore, currIncorrectScore, questionResponseTime, questions.length]); // if one of these changes, then the interval will be reset
 
     function submitAnswer() {
-        
+
         const submission = document.getElementById('answer-input').value;
         document.getElementById('answer-input').value = '';
 
@@ -118,9 +120,9 @@ function RedLightGreenLightPage() {
                 document.getElementById("win-text").style.display = "flex";
             }
             setCurrQuestionIndex((currQuestionIndex + 1) % questions.length);
-            
+
         } else {
-            
+
             handlePlay();
             document.getElementById('score-view').childNodes[currIncorrectScore].classList.add('red');
             document.getElementById("light").style.backgroundColor = RED;
@@ -138,9 +140,9 @@ function RedLightGreenLightPage() {
                 setCurrQuestionIndex((currQuestionIndex + 1) % questions.length);
                 document.getElementById("question-div").style.display = "flex";
             }, RED_LIGHT_PAUSE_TIME);
-            
+
         }
-        
+
     }
 
     console.log(questions[currQuestionIndex]);
@@ -151,13 +153,13 @@ function RedLightGreenLightPage() {
                     <source src={video} type="video/mp4" />
                     Your browser does not support video.
             </video>
-            <img className="background-image" src={RedLightGreenLightImage} alt="Red Light Green Light" /> 
+            <img className="background-image" src={RedLightGreenLightImage} alt="Red Light Green Light" />
             {/* in case the video doesnt work ^ */}
             <div className="empty-div"></div>
 
             <div className="red-light-green-light-container">
                 {/* {console.log("rerender")} */}
-                
+
                 <div id="header">
                     <h1>{unit.name}</h1>
                     <div id="pregame-div">
