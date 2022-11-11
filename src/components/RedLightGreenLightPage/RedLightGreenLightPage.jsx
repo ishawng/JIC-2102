@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import { useRef } from "react";
 import { useLocation } from 'react-router-dom';
 import { shuffleArray } from '../../utils';
-import RedLightGreenLightImage from './rlglart2.png';
+import RedLightGreenLightImage from './game1jd/jd1bg.png';
+import video from './game1jd/game1vid.mp4';
 import { getVocab } from '../../vocabData'
 import { ReactComponent as CircleSvg } from '../../SharedImages/Circle.svg'
 import { ReactComponent as SkullSvg } from '../../SharedImages/Skull.svg'
 import './RedLightGreenLightPage.css';
 import { useEffect } from 'react';
+
 
 function ScoreView() {
     return (
@@ -19,12 +22,19 @@ function ScoreView() {
 }
 
 function RedLightGreenLightPage() {
+    const videoRef = useRef();
+    const handlePlay = () => {
+        videoRef.current.play();
+    };
+    const handlePause = () => {
+        videoRef.current.pause();
+    };
     const RED = "#B81D13";
     const GREEN = "#008450";
     const EASY_QUESTION_RESPONSE_TIME = 12000;
     const MEDIUM_QUESTION_RESPONSE_TIME = 8000;
     const HARD_QUESTION_RESPONSE_TIME = 5000;
-    const RED_LIGHT_PAUSE_TIME = 2000;
+    const RED_LIGHT_PAUSE_TIME = 2500;
     const location = useLocation();
     const unit = location.state;
     const [questionResponseTime, setQuestionResponseTime] = useState(5000);
@@ -96,6 +106,7 @@ function RedLightGreenLightPage() {
     }, [currQuestionIndex, currCorrectScore, currIncorrectScore, questionResponseTime, questions.length]); // if one of these changes, then the interval will be reset
 
     function submitAnswer() {
+        
         const submission = document.getElementById('answer-input').value;
         document.getElementById('answer-input').value = '';
 
@@ -107,7 +118,10 @@ function RedLightGreenLightPage() {
                 document.getElementById("win-text").style.display = "flex";
             }
             setCurrQuestionIndex((currQuestionIndex + 1) % questions.length);
+            
         } else {
+            
+            handlePlay();
             document.getElementById('score-view').childNodes[currIncorrectScore].classList.add('red');
             document.getElementById("light").style.backgroundColor = RED;
             document.getElementById("question-div").style.display = "none";
@@ -119,22 +133,31 @@ function RedLightGreenLightPage() {
             }
             // Incorrect answer but game not over; pause on red light before next question
             setTimeout(() => {
+                handlePause();
                 document.getElementById("light").style.backgroundColor = GREEN;
                 setCurrQuestionIndex((currQuestionIndex + 1) % questions.length);
                 document.getElementById("question-div").style.display = "flex";
             }, RED_LIGHT_PAUSE_TIME);
+            
         }
-
+        
     }
 
     console.log(questions[currQuestionIndex]);
 
     return (
         <div className="rlgl-full-container">
+            <video id="video" autoplay muted loop ref={videoRef}>
+                    <source src={video} type="video/mp4" />
+                    Your browser does not support video.
+            </video>
+            <img className="background-image" src={RedLightGreenLightImage} alt="Red Light Green Light" /> 
+            {/* in case the video doesnt work ^ */}
             <div className="empty-div"></div>
+
             <div className="red-light-green-light-container">
                 {/* {console.log("rerender")} */}
-                <img className="background-image" src={RedLightGreenLightImage} alt="Red Light Green Light" />
+                
                 <div id="header">
                     <h1>{unit.name}</h1>
                     <div id="pregame-div">
@@ -171,7 +194,7 @@ function RedLightGreenLightPage() {
                             <h2>What is <span id="question-text">{questions[currQuestionIndex][questionLanguage]}</span> in {answerLanguage.charAt(0).toUpperCase() + answerLanguage.slice(1)}?</h2>
                             <div id='answer'>
                                 <input id='answer-input' type='text' autoComplete='off' />
-                                <button className='btn btn-primary' onClick={submitAnswer}>Submit</button>
+                                <button className='btn btn-primary' onClick={() => {submitAnswer(); }}>Submit</button>
                             </div>
                         </div>
                     </div>
