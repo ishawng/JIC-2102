@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { shuffleArray } from '../../utils';
-import RedLightGreenLightImage from './rlglart2.png';
+import RedLightGreenLightImage from './game1jd/jd1bg.png';
+import Back from './game1jd/1fullback.png';
+import TurnGif from './game1jd/fullTurnDoll.gif';
 import { getVocab } from '../../vocabData'
 import { ReactComponent as CircleSvg } from '../../SharedImages/Circle.svg'
 import { ReactComponent as SkullSvg } from '../../SharedImages/Skull.svg'
 import './RedLightGreenLightPage.css';
 import { useEffect } from 'react';
+
+const DOLLS = [Back, TurnGif];
 
 function ScoreView() {
     return (
@@ -19,6 +23,7 @@ function ScoreView() {
 }
 
 function RedLightGreenLightPage() {
+    const [state, setState] = useState({ currState: 0});
     const RED = "#B81D13";
     const GREEN = "#008450";
     const EASY_QUESTION_RESPONSE_TIME = 12000;
@@ -96,6 +101,7 @@ function RedLightGreenLightPage() {
     }, [currQuestionIndex, currCorrectScore, currIncorrectScore, questionResponseTime, questions.length]); // if one of these changes, then the interval will be reset
 
     function submitAnswer() {
+        setState({score:1})
         const submission = document.getElementById('answer-input').value;
         document.getElementById('answer-input').value = '';
 
@@ -108,6 +114,7 @@ function RedLightGreenLightPage() {
             }
             setCurrQuestionIndex((currQuestionIndex + 1) % questions.length);
         } else {
+
             document.getElementById('score-view').childNodes[currIncorrectScore].classList.add('red');
             document.getElementById("light").style.backgroundColor = RED;
             document.getElementById("question-div").style.display = "none";
@@ -124,14 +131,16 @@ function RedLightGreenLightPage() {
                 document.getElementById("question-div").style.display = "flex";
             }, RED_LIGHT_PAUSE_TIME);
         }
-
+        
     }
 
     console.log(questions[currQuestionIndex]);
 
     return (
         <div className="rlgl-full-container">
-            <div className="empty-div"></div>
+            <div className="empty-div">
+                <img className="doll" src={DOLLS[state.currState]} alt="doll" />
+            </div>
             <div className="red-light-green-light-container">
                 {/* {console.log("rerender")} */}
                 <img className="background-image" src={RedLightGreenLightImage} alt="Red Light Green Light" />
