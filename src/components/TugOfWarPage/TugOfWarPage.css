@@ -44,6 +44,10 @@
     align-items: center;
 }
 
+#tug-of-war-container #pregame #settings {
+    margin-bottom: 10px;
+}
+
 #tug-of-war-container #game {
     display: none;
     flex-direction: column;
