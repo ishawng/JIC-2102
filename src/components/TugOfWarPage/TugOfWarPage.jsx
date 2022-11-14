@@ -41,6 +41,7 @@ function TugOfWarPage() {
         questions: getVocab(1),
         currQuestionIndex: 0,
         score: 3,
+        answerLanguage: 'korean',
     });
 
     function startGame() {
@@ -51,10 +52,14 @@ function TugOfWarPage() {
 
         const questions = state.questions;
         shuffleArray(questions);
+
+        const answerLanguage = document.querySelector('input[name="answer-language"]:checked').value;
+
         setState({
             questions: questions,
             currQuestionIndex: 0,
             score: 3,
+            answerLanguage: answerLanguage,
         });
 
         const scoreChildren = document.getElementById('score').childNodes;
@@ -70,9 +75,10 @@ function TugOfWarPage() {
         const questions = state.questions;
         const currQuestionIndex = state.currQuestionIndex;
         const currScore = state.score;
+        const answerLanguage = state.answerLanguage;
         const submission = document.getElementById('answer-input').value;
 
-        if (submission === questions[currQuestionIndex].korean) {
+        if (submission === questions[currQuestionIndex][answerLanguage]) {
             document.getElementById('answer-input').value = '';
 
             const newScore = currScore + 1;
@@ -118,11 +124,18 @@ function TugOfWarPage() {
                     <ScoreView />
                 </div>
                 <div id='pregame'>
+                    <div id='settings'>
+                        <b>Answer Language:</b>
+                        <input type="radio" id="korean" name="answer-language" value="korean" checked></input>
+                        <label for="korean">Korean</label>
+                        <input type="radio" id="english" name="answer-language" value="english"></input>
+                        <label for="english">English</label>
+                    </div>
                     <button className='btn btn-primary' onClick={startGame}>Start Game</button>
                 </div>
                 <div id='game'>
                     <div id='question'>
-                        <h2>What is <span id="question-text">{state.questions[state.currQuestionIndex].english}</span> in Korean?</h2>
+                        <h2>What is <span id="question-text">{state.answerLanguage === 'korean' ? state.questions[state.currQuestionIndex].english : state.questions[state.currQuestionIndex].korean}</span> in {state.answerLanguage.charAt(0).toUpperCase() + state.answerLanguage.slice(1)}?</h2>
                     </div>
                     <div id='answer'>
                         <input id='answer-input' type='text' autoComplete='off' onKeyDown={(event) => { if (event.key === 'Enter') submitAnswer(); }} />
