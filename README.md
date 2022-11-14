@@ -13,6 +13,10 @@ Our goal for the fourth sprint was to have a playable and nearly finalized versi
 
 ### Bug Fixes
 * Fixed issue with Red Light Green Light UI where the question div would move depending on the length of the question.
+* Fixed issue with light changing to red when a user incorrectly answers a question in the Red Light Green Light minigame.
+
+### Known Issues
+* The turning animation for the Red Light Green Light doll is not in the correct position for all screen resolutions.
 
 ## Version 0.3.0
 
