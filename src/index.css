@@ -1,3 +1,5 @@
 body {
-    background-color: #C8D0D2;
+    background-image: url(./websiteGeneralBG.PNG);
+    background-color: rgb(255, 255, 255);
+    background-size: 435px;
 }
