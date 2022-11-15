@@ -3,6 +3,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 2rem;
+    width: 650px;
+    height: auto;
+    background-color: white;
+    margin: 3rem auto 2rem auto;
+    border: 2px solid black;
+    border-radius: 10px;
 }
 
 .unit-button {
