@@ -37,14 +37,21 @@ function ScoreView() {
 function TugOfWarPage() {
     const location = useLocation();
     const unit = location.state;
+
     const [state, setState] = useState({
-        questions: getVocab(1),
+        questions: getVocab(unit.number),
         currQuestionIndex: 0,
         score: 3,
         answerLanguage: 'korean',
     });
 
     function startGame() {
+        const languageRadioButton = document.querySelector('input[name="answer-language"]:checked');
+        if (languageRadioButton === null) {
+            return;
+        }
+        const answerLanguage = languageRadioButton.value;
+
         document.getElementById('pregame').style.display = 'none';
         document.getElementById('postgame').style.display = 'none';
         document.getElementById('win-text').style.display = 'none';
@@ -53,7 +60,7 @@ function TugOfWarPage() {
         const questions = state.questions;
         shuffleArray(questions);
 
-        const answerLanguage = document.querySelector('input[name="answer-language"]:checked').value;
+        console.log(answerLanguage);
 
         setState({
             questions: questions,
@@ -126,7 +133,7 @@ function TugOfWarPage() {
                 <div id='pregame'>
                     <div id='settings'>
                         <b>Answer Language:</b>
-                        <input type="radio" id="korean" name="answer-language" value="korean" checked></input>
+                        <input type="radio" id="korean" name="answer-language" value="korean"></input>
                         <label for="korean">Korean</label>
                         <input type="radio" id="english" name="answer-language" value="english"></input>
                         <label for="english">English</label>
