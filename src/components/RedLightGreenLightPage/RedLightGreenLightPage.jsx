@@ -41,9 +41,9 @@ function RedLightGreenLightPage() {
     const [currQuestionIndex, setCurrQuestionIndex] = useState(0);
     const [currCorrectScore, setCurrCorrectScore] = useState(-1); // set as -1 so update to 1 in startGame() triggers rerender
     const [currIncorrectScore, setCurrIncorrectScore] = useState(0);
-    const[questionLanguage, setQuestionLanguage] = useState("");
-    const[answerLanguage, setAnswerLanguage] = useState("");
-    const questions = getVocab(1);
+    const [questionLanguage, setQuestionLanguage] = useState("");
+    const [answerLanguage, setAnswerLanguage] = useState("");
+    const questions = getVocab(unit.number);
 
     function startGame() {
         const difficulty = document.querySelector('input[name="difficulty"]:checked').value;
@@ -150,8 +150,8 @@ function RedLightGreenLightPage() {
     return (
         <div className="rlgl-full-container">
             <video id="video" autoplay muted loop ref={videoRef}>
-                    <source src={video} type="video/mp4" />
-                    Your browser does not support video.
+                <source src={video} type="video/mp4" />
+                Your browser does not support video.
             </video>
             <img className="background-image" src={RedLightGreenLightImage} alt="Red Light Green Light" />
             {/* in case the video doesnt work ^ */}
@@ -192,11 +192,11 @@ function RedLightGreenLightPage() {
                             <ScoreView />
                         </div>
                         <div id="question-div">
-                        <h4>Question:</h4>
+                            <h4>Question:</h4>
                             <h2>What is <span id="question-text">{questions[currQuestionIndex][questionLanguage]}</span> in {answerLanguage.charAt(0).toUpperCase() + answerLanguage.slice(1)}?</h2>
                             <div id='answer'>
                                 <input id='answer-input' type='text' autoComplete='off' />
-                                <button className='btn btn-primary' onClick={() => {submitAnswer(); }}>Submit</button>
+                                <button className='btn btn-primary' onClick={() => { submitAnswer(); }}>Submit</button>
                             </div>
                         </div>
                     </div>
