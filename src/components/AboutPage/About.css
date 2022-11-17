@@ -1,0 +1,28 @@
+.about-container {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0rem 15rem 2rem 15rem;
+}
+
+.student-box-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.student-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    margin: 0rem 3rem 0rem 3rem;
+    
+}
+
+.student {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* margin: 0rem 3rem 2rem 3rem; */
+}
