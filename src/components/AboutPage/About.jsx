@@ -15,8 +15,8 @@ function About() {
                         <p> <a href="https://www.linkedin.com/in/ishawng/">Developer</a> </p>
                     </div>
                     <div className="student">
-                        <h3>Rina Yoo</h3>
-                        <p> <a href="https://www.instagram.com/rinayooart/">Artist</a>, <a href="https://www.linkedin.com/in/rina-yoo/">Developer</a> </p>
+                        <h3>Andrew Osmond</h3>
+                        <p>Developer</p>
                     </div>
                     <div className="student">
                         <h3>James Kelley</h3>
@@ -26,9 +26,10 @@ function About() {
 
                 <div className="student-box">
                     <div className="student">
-                        <h3>Andrew Osmond</h3>
-                        <p>Developer</p>
+                        <h3>Rina Yoo</h3>
+                        <p> <a href="https://www.instagram.com/rinayooart/">Artist</a>, <a href="https://www.linkedin.com/in/rina-yoo/">Developer</a> </p>
                     </div>
+                    
                     <div className="student">
                         <h3>Karishma Rana</h3>
                         <p> <a href="https://www.linkedin.com/in/karishma-rana">Developer</a> </p>

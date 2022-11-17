@@ -3,7 +3,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0rem 15rem 2rem 15rem;
+    /* padding: 0rem 15rem 2rem 15rem; */
+    width: 800px;
+    padding: 2rem;
+    background-color: white;
+    margin: 0rem auto 2rem auto;
+    border: 2px solid black;
+    border-radius: 10px;
 }
 
 .student-box-container {
