@@ -1,0 +1,34 @@
+.about-container {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding: 0rem 15rem 2rem 15rem; */
+    width: 800px;
+    padding: 2rem;
+    background-color: white;
+    margin: 0rem auto 2rem auto;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.student-box-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.student-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    margin: 0rem 3rem 0rem 3rem;
+    
+}
+
+.student {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* margin: 0rem 3rem 2rem 3rem; */
+}
