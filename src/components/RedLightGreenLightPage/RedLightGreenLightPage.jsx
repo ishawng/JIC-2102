@@ -206,6 +206,11 @@ function RedLightGreenLightPage() {
                         <button className='btn btn-primary' onClick={playAgain}>Play Again</button>
                     </div>
                 </div>
+                <div id="tutorial">
+                    <p> <b>How to win:</b> answer 5 questions correctly before running out of lives.<br></br>
+                        Lives are lost when the light turns red, which occurs if you answer incorrectly<br></br>
+                        or take too long to answer. <b>Good Luck!</b> </p>
+                </div>
             </div>
         </div>
     );
