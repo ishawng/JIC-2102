@@ -443,7 +443,7 @@ const VOCAB = {
             korean: '타다',
         },
         {
-            english: 'Biking',
+            english: 'Viking (ship ride)',
             korean: '바이킹',
         },
         {
