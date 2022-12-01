@@ -67,6 +67,7 @@ function RedLightGreenLightPage() {
         }
 
         document.getElementById("pregame-div").style.display = "none";
+        document.getElementById("tutorial").style.display = "none";
         document.getElementById("postgame-div").style.display = "none";
         document.getElementById("win-text").style.display = "none";
         document.getElementById("lose-text").style.display = "none";
@@ -75,6 +76,7 @@ function RedLightGreenLightPage() {
 
     function playAgain() {
         document.getElementById("pregame-div").style.display = "flex";
+        document.getElementById("tutorial").style.display = "flex";
         document.getElementById("postgame-div").style.display = "none";
     }
 
