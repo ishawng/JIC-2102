@@ -4,9 +4,8 @@
 }
 
 .rlgl-full-container #video {
-    min-width: 1800px;
-    width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: fill;
     position: fixed;
     top: 0;
     left: 0;
