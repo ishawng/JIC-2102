@@ -1,5 +1,5 @@
 #flashcard-container {
-    margin-top: 25px;
+    margin-top: 24px;
     display: grid;
     align-items: center;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
