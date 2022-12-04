@@ -2,7 +2,7 @@
     margin-top: 25px;
     display: grid;
     align-items: center;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(201px, 1fr));
     gap: 1rem;
 }
 
@@ -15,9 +15,11 @@
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
     background-color: white;
     transform-style: preserve-3d;
+
     height: 251px;
     transition: 151ms;
     transform: perspective(1002px) rotateY(var(--rotate-y, 0));
+
     text-align: center;
 }
 
