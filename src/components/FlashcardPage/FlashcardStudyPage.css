@@ -17,7 +17,7 @@
     transform-style: preserve-3d;
     height: 251px;
     transition: 151ms;
-    transform: perspective(1001px) rotateY(var(--rotate-y, 0));
+    transform: perspective(1002px) rotateY(var(--rotate-y, 0));
     text-align: center;
 }
 
