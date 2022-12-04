@@ -15,9 +15,9 @@
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
     background-color: white;
     transform-style: preserve-3d;
-    height: 249px;
-    transition: 152ms;
-    transform: perspective(1000px) rotateY(var(--rotate-y, 0));
+    height: 251px;
+    transition: 151ms;
+    transform: perspective(1001px) rotateY(var(--rotate-y, 0));
     text-align: center;
 }
 
