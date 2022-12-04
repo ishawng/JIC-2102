@@ -13,7 +13,7 @@ const QUESTIONS = {
             korean: '고마워요',
         },
         {
-            english: 'What is ~?',
+            english: 'What is?',
             korean: '~이/가 뭐예요?',
         },
         {
