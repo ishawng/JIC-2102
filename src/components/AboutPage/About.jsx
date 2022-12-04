@@ -36,7 +36,7 @@ function About() {
                     </div>
                     <div className="student">
                         <h3>Arya Joshi</h3>
-                        <p>Developer</p>
+                        <p> <a href="https://www.linkedin.com/in/arya-joshi-3202641b3/">Developer</a> </p>
                     </div>
                 </div>
             </div>
