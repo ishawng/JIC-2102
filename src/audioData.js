@@ -124,4 +124,4 @@ export function getAudio(word) {
         return WORD_TO_FILE[word];
     }
     return null;
-}
+};

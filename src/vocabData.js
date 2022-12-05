@@ -495,4 +495,4 @@ const VOCAB = {
 
 export function getVocab(unitNumber) {
     return VOCAB[unitNumber];
-}
+};
