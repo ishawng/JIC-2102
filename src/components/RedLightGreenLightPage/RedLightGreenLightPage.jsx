@@ -197,7 +197,7 @@ function RedLightGreenLightPage() {
                             <h4>Question:</h4>
                             <h2>What is <span id="question-text">{questions[currQuestionIndex][questionLanguage]}</span> in {answerLanguage.charAt(0).toUpperCase() + answerLanguage.slice(1)}?</h2>
                             <div id='answer'>
-                                <input id='answer-input' type='text' autoComplete='off' />
+                                <input id='answer-input' type='text' autoComplete='off' onKeyDown={(event) => { if (event.key === 'Enter') submitAnswer(); }} />
                                 <button className='btn btn-primary' onClick={() => { submitAnswer(); }}>Submit</button>
                             </div>
                         </div>
